@@ -21,11 +21,13 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const staticEmail = 'admin@example.com';
-    const staticPassword = 'password@1234##5005*7672#';
+    const staticPassword = 'pass123';
 
     if (formData.email === staticEmail && formData.password === staticPassword) {
       console.log('Login successful!');
       // Add your login submission logic here
+      // Assuming you have a function to redirect to the dashboard
+      redirectToDashboard();
     } else {
       console.log('Login failed. Please check your credentials.');
     }
