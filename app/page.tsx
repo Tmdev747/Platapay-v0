@@ -1,13 +1,17 @@
 "use client";
 
+"use client";
+
 import { LayoutComponent } from '@/components/layout'
 import Dashboard from '@/components/Dashboard'
+import Login from '@/components/Login'
 import { useEffect, useState } from 'react'
 
 const cache = new Map();
 
 export default function Page() {
   const [prompt, setPrompt] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const cachedPrompt = cache.get('prompt');
@@ -19,11 +23,15 @@ export default function Page() {
       cache.set('prompt', newPrompt);
       setPrompt(newPrompt);
     }
+
+    // Simulate authentication check
+    const authStatus = localStorage.getItem('isAuthenticated');
+    setIsAuthenticated(authStatus === 'true');
   }, []);
 
   return (
-    <LayoutComponent title='Dashboard'>
-      <Dashboard prompt={prompt} />
+    <LayoutComponent title={isAuthenticated ? 'Dashboard' : 'Login'}>
+      {isAuthenticated ? <Dashboard prompt={prompt} /> : <Login />}
     </LayoutComponent>
   )
 }
