@@ -61,12 +61,6 @@ const VirtualCard = () => (
 
 export default function Dashboard() {
   const [activeIndex, setActiveIndex] = useState(0);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % promotions.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [promotions.length]);
   const promotions = [
     {
       title: "PaSend Promo",
@@ -90,6 +84,13 @@ export default function Dashboard() {
       bgColor: "bg-blue-600"
     }
   ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % promotions.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <div className="flex-1 overflow-y-auto bg-gray-100 pb-24">
       {/* Wallet Balance Section */}
