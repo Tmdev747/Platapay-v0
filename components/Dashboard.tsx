@@ -5,6 +5,7 @@ import { Plus, ArrowUp, Smartphone, Send, Globe, Zap, Shield, Gift } from 'lucid
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import React, { useEffect, useState } from 'react'
+import PushNotifications from '@/components/PushNotifications'
 
 const FeatureButton = ({ icon, label, href }) => (
   <Link href={href} className="flex flex-col items-center justify-center bg-white rounded-lg p-4 shadow">
@@ -120,6 +121,7 @@ export default function Dashboard() {
           <FeatureButton icon={<Smartphone className="w-6 h-6" />} label="Mobile Top-Up" href="/paload" />
           <FeatureButton icon={<Globe className="w-6 h-6" />} label="Remittance" href="/remit" />
           <FeatureButton icon={<Gift className="w-6 h-6" />} label="Rewards" href="/rewards" />
+          <PushNotifications />
         </div>
       </div>
 
