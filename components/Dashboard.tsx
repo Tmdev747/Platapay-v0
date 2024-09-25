@@ -31,7 +31,7 @@ const TransactionItem = ({ title, amount, date, icon }) => (
 )
 
 const PromotionCard = ({ title, description, buttonText, href, bgColor }) => (
-  <div className={`rounded-lg p-6 shadow-lg ${bgColor}`}>
+  <div className={`rounded-lg p-6 shadow-lg ${bgColor}`} style={{ backgroundColor: bgColor }}>
     <h3 className="text-lg font-semibold mb-2 text-white">{title}</h3>
     <p className="text-sm text-gray-100 mb-4">{description}</p>
     <Button asChild>
