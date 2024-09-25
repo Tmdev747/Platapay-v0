@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    reactRoot: true,
-    serverComponents: true,
-  },
   headers: async () => {
     return [
       {
