@@ -67,21 +67,21 @@ export default function Dashboard() {
       description: "Send money to anyone and get a chance to win ₱1,000 cashback!",
       buttonText: "Send Now",
       href: "/pasend",
-      bgColor: "bg-purple-600"
+      bgColor: "#FF6347" // Tomato
     },
     {
       title: "PaLoad Bonus",
       description: "Get 5% extra load on your next PaLoad transaction!",
       buttonText: "Load Now",
       href: "/paload",
-      bgColor: "bg-indigo-600"
+      bgColor: "#32CD32" // LimeGreen
     },
     {
       title: "Remit Rewards",
       description: "Earn double points on international remittances this month!",
       buttonText: "Learn More",
       href: "/remit",
-      bgColor: "bg-blue-600"
+      bgColor: "#8A2BE2" // BlueViolet
     }
   ];
 
