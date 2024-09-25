@@ -148,6 +148,15 @@ export default function Dashboard() {
           icon={<Globe className="text-[#4B0082] w-6 h-6" />}
         />
       </div>
+
+      {/* Additional Images Section */}
+      <div className="p-6">
+        <h3 className="text-lg font-semibold mb-4">Additional Images</h3>
+        <div className="grid grid-cols-2 gap-4">
+          <Image src="/sample1.png" alt="Sample Image 1" width={200} height={200} className="object-contain" />
+          <Image src="/sample2.png" alt="Sample Image 2" width={200} height={200} className="object-contain" />
+        </div>
+      </div>
     </div>
   )
 }
