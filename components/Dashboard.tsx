@@ -112,7 +112,7 @@ export default function Dashboard() {
       <div className="p-6">
         <h3 className="text-lg font-semibold mb-4">Main Features</h3>
         <div className="grid grid-cols-2 gap-4">
-          <FeatureButton icon={<Send className="w-6 h-6" />} label="PaSend" href="/pasend" />
+          <FeatureButton icon={<Send className="w-6 h-6" />} label="Send Money" href="/send-money" />
           <FeatureButton icon={<Smartphone className="w-6 h-6" />} label="PaLoad" href="/paload" />
           <FeatureButton icon={<Globe className="w-6 h-6" />} label="Remit" href="/remit" />
           <FeatureButton icon={<Zap className="w-6 h-6" />} label="Pay Bills" href="/pay-bills" />
