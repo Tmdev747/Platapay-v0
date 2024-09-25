@@ -27,7 +27,8 @@ const Login = () => {
       console.log('Login successful!');
       // Add your login submission logic here
       // Assuming you have a function to redirect to the dashboard
-      redirectToDashboard();
+      // Assuming you have a function to redirect to the dashboard
+      window.location.href = '/dashboard';
     } else {
       console.log('Login failed. Please check your credentials.');
     }
