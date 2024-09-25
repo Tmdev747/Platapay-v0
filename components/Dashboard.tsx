@@ -116,7 +116,7 @@ export default function Dashboard() {
           <FeatureButton icon={<Send className="w-6 h-6" />} label="Send Money" href="/send-money" />
           <FeatureButton icon={<Smartphone className="w-6 h-6" />} label="PaLoad" href="/paload" />
           <FeatureButton icon={<Globe className="w-6 h-6" />} label="Remit" href="/remit" />
-          <FeatureButton icon={<Zap className="w-6 h-6" />} label="Pay Bills" href="/pay-bills" />
+          <FeatureButton icon={<Zap className="w-6 h-6" />} label="Pay Bills" href="/bill-payment" />
           <FeatureButton icon={<Shield className="w-6 h-6" />} label="KYC" href="/kyc" />
           <FeatureButton icon={<Smartphone className="w-6 h-6" />} label="Mobile Top-Up" href="/paload" />
           <FeatureButton icon={<Globe className="w-6 h-6" />} label="Remittance" href="/remit" />
