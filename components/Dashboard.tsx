@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
-import { Plus, ArrowUp, Smartphone, Send, Globe, Zap } from 'lucide-react'
+import { Plus, ArrowUp, Smartphone, Send, Globe, Zap, Shield } from 'lucide-react'
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import React, { useEffect, useState } from 'react'
@@ -117,6 +117,7 @@ export default function Dashboard() {
           <FeatureButton icon={<Globe className="w-6 h-6" />} label="Remit" href="/remit" />
           <FeatureButton icon={<Zap className="w-6 h-6" />} label="Pay Bills" href="/pay-bills" />
           <FeatureButton icon={<Shield className="w-6 h-6" />} label="KYC" href="/kyc" />
+          <FeatureButton icon={<Smartphone className="w-6 h-6" />} label="Mobile Top-Up" href="/paload" />
         </div>
       </div>
 
