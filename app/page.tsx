@@ -9,7 +9,6 @@ export default function Page() {
 
   return (
     <LayoutComponent title={isAuthenticated ? 'Dashboard' : 'Login'}>
-      <ClientSideHandler />
       {isAuthenticated ? <Dashboard /> : <Login />}
     </LayoutComponent>
   )

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Bell, Menu, Home, CreditCard, QrCode, User, Settings } from 'lucide-react'
-import { ClientSideHandler } from '../app/page'
+import { ClientSideHandler } from '@/components/ClientSideHandler'
 
 interface LayoutProps {
   children: ReactNode
@@ -15,6 +15,7 @@ export function LayoutComponent({ children, title, showBackButton = false, onBac
   return (
     <div className="flex h-screen bg-[#4B0082]">
       <main className="flex-1 flex flex-col overflow-hidden">
+        <ClientSideHandler />
         {/* Header */}
         <header className="bg-[#3B006A] text-white p-4 flex items-center justify-between">
           <div className="flex items-center">
