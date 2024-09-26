@@ -1,46 +1,53 @@
-"use client";
-
-"use client";
-
 import { LayoutComponent } from '@/components/layout'
 import Dashboard from '@/components/Dashboard'
 import Login from '@/components/Login'
 import SplashScreen from '@/components/SplashScreen'
-import { useEffect, useState } from 'react'
-
-const cache = new Map();
+import { cookies } from 'next/headers'
 
 export default function Page() {
-  const [prompt, setPrompt] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [showSplash, setShowSplash] = useState(true);
-
-  useEffect(() => {
-    const cachedPrompt = cache.get('prompt');
-    if (cachedPrompt) {
-      setPrompt(cachedPrompt);
-    } else {
-      // Fetch or generate the prompt
-      const newPrompt = 'New Prompt'; // Replace with actual logic
-      cache.set('prompt', newPrompt);
-      setPrompt(newPrompt);
-    }
-
-    // Simulate authentication check
-    const authStatus = localStorage.getItem('isAuthenticated');
-    setIsAuthenticated(authStatus === 'true');
-
-    // Hide splash screen after 2 seconds
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const cookieStore = cookies()
+  const isAuthenticated = cookieStore.get('isAuthenticated')?.value === 'true'
 
   return (
     <LayoutComponent title={isAuthenticated ? 'Dashboard' : 'Login'}>
-      {showSplash ? <SplashScreen /> : (isAuthenticated ? <Dashboard prompt={prompt} /> : <Login />)}
+      {isAuthenticated ? <Dashboard /> : <Login />}
     </LayoutComponent>
   )
+}
+
+// Client-side component for handling dynamic behavior
+"use client";
+
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+
+export function ClientSideHandler() {
+  const [showSplash, setShowSplash] = useState(true)
+  const router = useRouter()
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const response = await fetch('/api/check-auth')
+      const data = await response.json()
+      if (data.isAuthenticated) {
+        router.push('/dashboard')
+      } else {
+        router.push('/login')
+      }
+    }
+
+    if (!showSplash) {
+      checkAuth()
+    }
+  }, [showSplash, router])
+
+  return showSplash ? <SplashScreen /> : null
 }
