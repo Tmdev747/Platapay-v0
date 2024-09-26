@@ -4,6 +4,7 @@ import React, { ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Bell, Menu, Home, CreditCard, QrCode, User, Settings } from 'lucide-react'
+import { ClientSideHandler } from '../app/page'
 
 interface LayoutProps {
   children: ReactNode
@@ -53,6 +54,7 @@ export function LayoutComponent({ children, title, showBackButton = false, onBac
 
         {/* Scrollable content area */}
         <div className="flex-1 overflow-y-auto bg-gray-100">
+          <ClientSideHandler />
           {children}
         </div>
 
