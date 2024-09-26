@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import SplashScreen from '@/components/SplashScreen'
+import { AnimatePresence } from 'framer-motion'
 
 export function ClientSideHandler() {
   const [showSplash, setShowSplash] = useState(true)
@@ -11,7 +12,7 @@ export function ClientSideHandler() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false)
-    }, 2000)
+    }, 3000) // Increased to 3 seconds to allow for the animation
 
     return () => clearTimeout(timer)
   }, [])
@@ -32,5 +33,9 @@ export function ClientSideHandler() {
     }
   }, [showSplash, router])
 
-  return showSplash ? <SplashScreen /> : null
+  return (
+    <AnimatePresence>
+      {showSplash && <SplashScreen />}
+    </AnimatePresence>
+  )
 }
