@@ -1,15 +1,19 @@
 import { LayoutComponent } from '@/components/layout'
 import Dashboard from '@/components/Dashboard'
-import Login from '@/components/Login'
 import { ClientSideHandler } from '@/components/ClientSideHandler'
 import { ServerComponent } from './ServerComponent'
+import { redirect } from 'next/navigation'
 
 export default function Page() {
   const { isAuthenticated } = ServerComponent()
 
+  if (!isAuthenticated) {
+    redirect('/login')
+  }
+
   return (
-    <LayoutComponent title={isAuthenticated ? 'Dashboard' : 'Login'}>
-      {isAuthenticated ? <Dashboard /> : <Login />}
+    <LayoutComponent title="Dashboard">
+      <Dashboard />
     </LayoutComponent>
   )
 }
